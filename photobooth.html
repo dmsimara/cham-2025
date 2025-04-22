@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images/logo-cham.png" type="image/png">
+  <title>Chammy's Birthday Photobooth</title>
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="/css/photobooth.css" />
+</head>
+<body>
+  <div class="photobooth-container">
+    <h1>Chammy's Photobooth</h1>
+
+    <div class="camera-frame">
+      <video id="video" autoplay playsinline></video>
+      <div id="countdown" class="countdown"></div>
+      <div id="shutter" class="shutter"></div>
+    </div>
+
+    <div class="controls">
+      <button id="snap">📷 Take Photo Strip</button>
+      <a id="download" download="chammy-strip.png">⬇️ Download Strip</a>
+    </div>
+
+    <canvas id="stripCanvas" style="display: none;"></canvas>
+    <div class="preview-wrapper" style="display: none;">
+      <p class="ready-message">🎉 Your strip is ready!</p>
+      <img id="preview" alt="Photo strip preview" />
+    </div>
+  
+    <a href="home.html" class="back-btn">Back to Home</a>
+  </div>
+
+  <script src="/js/photobooth.js"></script>
+</body>
+</html>

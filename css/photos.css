@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #D0A5C0;
+  --secondary-color: #8E7C93;
+  --pink: #F6C0D0;
+  --grayish-blue: #485665;
+  --blue-green: #1E3231;
+  --overlay-bg: rgba(208, 165, 192, 0.85);
+  --lightbox-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: var(--primary-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.photos-container {
+  text-align: center;
+  padding: 30px 20px;
+  max-width: 900px;
+  width: 90%;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: var(--blue-green);
+  font-family: 'Mea Culpa', cursive;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px var(--secondary-color);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+}
+
+.photo-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover {
+  transform: scale(1.07);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  border-radius: 20px;
+}
+
+.photo-item:hover img {
+  transform: scale(1.1);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 28px;
+  text-decoration: none;
+  background-color: var(--grayish-blue);
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 5px 15px var(--secondary-color);
+}
+
+.back-btn:hover {
+  background-color: var(--blue-green);
+  box-shadow: 0 6px 20px var(--blue-green);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 9999;
+  backdrop-filter: blur(6px);
+  border-radius: 0;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: 85vw;
+  max-height: 80vh;
+  border-radius: 25px;
+  box-shadow: var(--lightbox-shadow);
+  animation: popIn 0.3s ease forwards;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: var(--pink);
+  border: none;
+  font-size: 2.8rem;
+  color: var(--blue-green);
+  font-weight: 900;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px var(--secondary-color);
+  transition: background-color 0.3s ease;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  background-color: var(--secondary-color);
+  color: var(--pink);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

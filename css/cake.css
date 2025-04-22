@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #D0A5C0;
+    --secondary-color: #8E7C93;
+    --pink: #F6C0D0;
+    --grayish-blue: #485665;
+    --blue-green: #1E3231;
+    --candle-flame: #F9D71C;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--blue-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.cake-container {
+    text-align: center;
+    padding: 30px 20px;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    font-family: 'Mea Culpa', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: var(--blue-green);
+    letter-spacing: 2px;
+}
+
+.cake {
+    position: relative;
+    margin: 100px auto 10px;
+    width: 250px;
+    height: 200px;
+}
+
+.layer {
+    border-radius: 40px 40px 20px 20px;
+    margin: 0 auto;
+    width: 250px;
+    height: 60px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--pink), var(--secondary-color));
+    border: 3px solid var(--blue-green);
+}
+
+.layer.middle {
+    width: 210px;
+    height: 50px;
+    margin: -20px auto 0;
+    background: linear-gradient(135deg, var(--secondary-color), var(--pink));
+    border-radius: 35px 35px 18px 18px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--blue-green);
+}
+
+.layer.top {
+    width: 170px;
+    height: 40px;
+    margin: -18px auto 0;
+    background: linear-gradient(135deg, var(--pink), var(--secondary-color));
+    border-radius: 30px 30px 15px 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--blue-green);
+}
+
+.candles {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 10px;
+}
+
+.candle {
+    width: 15px;
+    height: 50px;
+    background: var(--blue-green);
+    border-radius: 6px 6px 2px 2px;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    animation: flicker 3s infinite;
+    animation-delay: var(--delay);
+}
+
+.blow-btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .blow-btn:hover {
+    background-color: var(--blue-green);
+  }
+
+.candle::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 20px;
+    background: var(--candle-flame);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    filter: drop-shadow(0 0 4px #f9d71c);
+    animation: flameFlicker 3s infinite;
+    animation-delay: var(--delay);
+}
+
+/* Animations */
+@keyframes flicker {
+
+    0%,
+    100% {
+        background-color: var(--blue-green);
+    }
+
+    50% {
+        background-color: #2E4B4A;
+    }
+}
+
+@keyframes flameFlicker {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+.wish {
+    font-family: 'Mea Culpa', cursive;
+    font-size: 1.4rem;
+    color: var(--blue-green);
+    margin-bottom: 25px;
+    padding: 0 15px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    text-decoration: none;
+    background-color: var(--grayish-blue);
+    color: white;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px var(--secondary-color);
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--blue-green);
+    box-shadow: 0 6px 20px var(--blue-green);
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 10000;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    opacity: 0.9;
+    border-radius: 2px;
+    animation: fall 5s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}

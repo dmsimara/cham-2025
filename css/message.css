@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #D0A5C0;
+  --secondary-color: #8E7C93;
+  --pink: #F6C0D0;
+  --grayish-blue: #485665;
+  --blue-green: #1E3231;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: var(--primary-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.message-container {
+  padding: 20px;
+  max-width: 600px;
+  animation: fadeIn 1s ease-in;
+}
+
+.card {
+  background-color: var(--pink);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: var(--blue-green);
+  text-align: left;
+}
+
+.card h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: var(--grayish-blue);
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: var(--blue-green);
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

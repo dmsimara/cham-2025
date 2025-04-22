@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Noto+Sans:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #D0A5C0;
+    --secondary-color: #8E7C93;
+    --pink: #F6C0D0;
+    --grayish-blue: #485665;
+    --blue-green: #1E3231;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    width: 100vw;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.display {
+    background-color: var(--grayish-blue);
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    width: 300px;
+    min-height: 40px;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    justify-content: center;
+}
+
+.key {
+    padding: 20px;
+    font-size: 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.key:hover {
+    background-color: var(--grayish-blue);
+}
